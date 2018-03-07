@@ -21,6 +21,15 @@ io.on('connection',(socket) => {
         createAt: 123
     });
 
+    socket.emit('newMessage',{
+        from: 'kelvin',
+        text:'See you then',
+        createAt:1234
+    });
+
+    socket.on('createMessage',(message)=>{
+        console.log('createMessage',message);
+    });
     socket.on('createEmail',(newEmail)=>{
         console.log('createEmail',newEmail);
     });

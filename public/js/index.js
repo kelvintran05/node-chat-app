@@ -7,10 +7,19 @@ socket.on('connect',()=>{
         to:'dat@gmail.com',
         text: 'Hey.This is kelvin'
     });
+
+    socket.emit('createMessage',{
+        from:'Andrew',
+        text:'Yup, that works for me.'
+    });
 });
 
 socket.on('disconnect',()=> {
     console.log("Disconnected from server");
+});
+
+socket.on('newMessage',(message)=>{
+    console.log('newMessage',message);
 });
 
 socket.on('newEmail', (email)=>{
